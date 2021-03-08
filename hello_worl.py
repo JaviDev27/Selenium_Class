@@ -14,6 +14,7 @@ class Hello_World(unittest.TestCase):
             executable_path='./chromedriver.exe')  # llamo al driver de chrome
         driver = cls.driver
         driver.implicitly_wait(10)
+        """ Espera implicitamente para hacer la siguiente prueba el tiempo es en segundos """
 
     # caso de la prueb para automatizar
 
@@ -27,6 +28,7 @@ class Hello_World(unittest.TestCase):
     def test_visit_wikipedia(self):
         self.driver.get('https://www.wikipedia.org')
 
+    """ el decorador @classmethod permite que se habra en un solo explorador las pruebas """
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
