@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
-class Home_Page_Test(unittest.TestCase):
+class Assertion_Test(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path='./chromedriver.exe')
@@ -16,13 +16,17 @@ class Home_Page_Test(unittest.TestCase):
         driver.maximize_window()
         driver.implicitly_wait(30)
 
+    # identificamos el campo de busqueda
     def test_search_field(self):
         self.assertTrue(self.is_element_present(By.NAME, 'q'))
 
     """ Valida presensia de elementos """
 
     def test_languaje_option(self):
-        self.assertTrue(self.is_element_present(By.ID, 'select-languaje'))
+        self.assertTrue(self.is_element_present(By.ID, 'select-language'))
+
+    def tearDown(self):
+        self.driver.quit()
 
     """ Este metodo permite identificar cuando existe un 
     elemento de acuerdo a sus parámetros
